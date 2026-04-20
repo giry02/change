@@ -1,0 +1,27 @@
+{
+  "name": "combination-discount-ui",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "description": "Premium React UI for Combination Discounts",
+  "main": "App.tsx",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "framer-motion": "^12.0.0",
+    "lucide-react": "^0.460.0",
+    "tailwindcss": "4"
+  },
+  "keywords": [
+    "react",
+    "framer-motion",
+    "tailwind",
+    "skt",
+    "ui"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
