@@ -1,24 +1,73 @@
-# Premium Combination Discount UI (결합할인 UI)
+# React + TypeScript + Vite
 
-This folder is a complete, standalone Vite/React project containing the premium "Combination Discount" UI.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 📂 Project Structure
-- `index.html`: Main entry point for the browser.
-- `vite.config.ts`: Vite configuration for React and Tailwind 4.
-- `package.json`: Dependency and script management.
-- `src/main.tsx`: React runtime entry point.
-- `src/App.tsx`: Primary component logic and UI layout.
-- `src/index.css`: Global design system and Tailwind 4 setup.
-- `src/imports/svg-ofbuxphacw.ts`: High-quality SVG path assets.
+Currently, two official plugins are available:
 
-## 🚀 Getting Started
-To run this project locally:
-1. Open a terminal in the `change_ui` folder.
-2. Install dependencies: `npm install`
-3. Start the dev server: `npm run dev`
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## ☁️ GitHub Upload
-You can upload this entire `change_ui` folder to your GitHub. It includes all the necessary configuration files (`index.html`, `vite.config.ts`, etc.) to run as a separate app or sub-page.
+## React Compiler
 
----
-*Created by Antigravity AI*
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
